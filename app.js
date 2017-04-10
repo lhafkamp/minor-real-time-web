@@ -1,10 +1,8 @@
-// require modules
 const express = require('express');
-const socket = require('socket.io');
-const path = require('path');
-
-// express
 const app = express();
+const http = require('http').Server(app);
+const path = require('path');
+const io = require('socket.io')(http);
 
 // get the public files
 app.use(express.static('public'));
@@ -12,6 +10,11 @@ app.use(express.static('public'));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+// on user connection
+io.on('connection', (socket) => {
+	console.log('a user connected');
+});
 
 // render the index page
 app.get('/', (req, res) => {
@@ -24,6 +27,6 @@ app.get('*', (req, res) => {
 });
 
 // run the app
-app.listen(3333, () => {
+http.listen(3333, () => {
 	console.log('Running on http://localhost:3333');
 });
