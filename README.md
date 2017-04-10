@@ -21,7 +21,7 @@ To start the server on port `9000`
 
 To use socket.io you need to do the following:
 
-####Client side  
+__Client side__
 
 ```html
 <script>"/socket.io/socket.io.js"</script>
@@ -31,7 +31,7 @@ To use socket.io you need to do the following:
 const socket = io();
 ```
 
-####Server side  
+__Server side__  
 ```js
 const io = require('socket.io')(http);
 ```
