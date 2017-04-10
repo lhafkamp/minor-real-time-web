@@ -15,7 +15,7 @@ To install the Node dependencies.
 ```bash
 npm start
 ```
-To start the server on port `9000`  
+To start the server on port `3333`  
 
 ## Socket.io
 
