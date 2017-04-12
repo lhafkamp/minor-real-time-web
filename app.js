@@ -16,9 +16,11 @@ app.set('view engine', 'ejs');
 
 // on connection
 io.on('connection', (socket) => {
+	// get the user value and push it into the array
 	socket.on('user', (user) => {
 		io.emit('user', user);
 		userArray.push(user);
+		// send the array to the client
 		io.emit('thisArrayIsGoingPlaces', userArray);
 	});
 
