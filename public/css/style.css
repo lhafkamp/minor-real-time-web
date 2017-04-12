@@ -1,4 +1,4 @@
-body {
+container {
 	margin: 0;
 	padding: 0;
 	display: flex;
@@ -23,4 +23,12 @@ form button {
 	height: 5.5em;
 	width: 10em;
 	cursor: pointer;
+}
+
+.hide {
+	display: none;
+}
+
+span {
+	font-weight: 900;
 }
