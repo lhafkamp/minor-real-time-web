@@ -15,13 +15,11 @@ app.set('view engine', 'ejs');
 // on user connect/disconnect
 io.on('connection', (socket) => {
 	console.log('user connected');
+	
 	socket.on('disconnect', () => {
 		console.log('user disconnected');
 	});
-});
 
-// chat message
-io.on('connection', (socket) => {
 	socket.on('user', (user) => {
 		io.emit('user', user);
 	})
