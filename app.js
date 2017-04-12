@@ -5,6 +5,8 @@ const http = require('http').Server(app);
 const path = require('path');
 const io = require('socket.io')(http);
 
+const userArray = [];
+
 // get the public files
 app.use(express.static('public'));
 
@@ -12,20 +14,20 @@ app.use(express.static('public'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// on user connect/disconnect
+// on connection
 io.on('connection', (socket) => {
-	console.log('user connected');
-	
-	socket.on('disconnect', () => {
-		console.log('user disconnected');
-	});
-
 	socket.on('user', (user) => {
 		io.emit('user', user);
-	})
+		userArray.push(user);
+		io.emit('thisArrayIsGoingPlaces', userArray);
+	});
 
 	socket.on('chat message', (message) => {
 		io.emit('chat message', message);
+	});
+
+	socket.on('disconnect', () => {
+		io.emit('delete', userArray);
 	});
 });
 
