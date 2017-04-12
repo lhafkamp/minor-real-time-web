@@ -1,19 +1,19 @@
-# minor-real-time-web
-Assignments for the course Real-Time Web
+# minor-real-time-web (socket chat)
+Assignment for the course Real-Time Web
 
 ### Link to the app:
-<a href="app.luukhafkamp.nl">app.luukhafkamp.nl</a>
+<a href="http://app.luukhafkamp.nl">app.luukhafkamp.nl</a>
 
 Deployed with:  
-  [x] Digital Ocean  
-  [x] Phusion Passenger  
-  [x] Nginx
+-  [x] <a href="https://www.digitalocean.com/>">Digitalocean</a>  
+-  [x] <a href="https://www.phusionpassenger.com/">Phusion Passenger</a>  
+-  [x] <a href="https://www.nginx.com/">Nginx</a>
 
 ## Intro
 A simple chat made with socket.io. You can:  
-  [x] Log in with a nickname!  
-  [x] Chat!  
-  [x] See who else is in the room!
+-  [x] Log in with a nickname!  
+-  [x] Chat!  
+-  [x] See who else is in the room!
 
 ## Learning socket.io + problems
 The biggest problem I came across was displaying all the users in the chat. I tried to make a client side array but it kept multiplying the users. Because of this I decided that I had to store it server side.
@@ -30,7 +30,7 @@ socket.on('user', (user) => {
 		io.emit('user', user);
 		userArray.push(user);
 		io.emit('thisArrayIsGoingPlaces', userArray);
-	});
+});
 ```  
 
 From the client I use the updated userArray to display the usernames on screen.
@@ -50,6 +50,15 @@ So with this little "exercise" I went:
 => ss (updating the array and sending it back)  
 => client (displaying the array content)
 
+
+## Wishlist (with more time/for the upcoming weeks)
+-  [ ] styling
+-  [ ] adding a database so I can save users/messages
+-  [ ] chat rooms
+-  [ ] making a user admin (kick powers etc)
+-  [ ] gifs
+-  [ ] linking it to an API (Giphy?)
+-  [ ] displaying real-time data from an API
 
 ## Build
 To run the application:
