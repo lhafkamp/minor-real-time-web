@@ -1,3 +1,26 @@
 <%- include ./part/header.ejs %>
 
+<form id="login" action="">
+	<h1>Enter your nickname</h1>
+	<input autocomplete="off"></input>
+	<button>Go</button>
+</form>
+
+<container class="hide">
+	<div>
+		<ul id="users">
+			<!-- users -->
+		</ul>
+
+		<ul id="messages">
+			<!-- messages -->
+		</ul>
+	</div>
+
+	<form id="chat" action="">
+		<input autocomplete="off"></input>
+		<button>Send</button>
+	</form>
+</container>
+
 <%- include ./part/footer.ejs %>
